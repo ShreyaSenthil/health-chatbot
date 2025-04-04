@@ -1,0 +1,11 @@
+import google.generativeai as genai
+
+GEMINI_API_KEY = "AIzaSyBhHBsrcG4WZxKaGFlwif4ckHJpqmIDGfo"
+genai.configure(api_key=GEMINI_API_KEY)
+
+try:
+    model = genai.GenerativeModel("gemini-1.5-pro")
+    response = model.generate_content("Hello, what is AI?")
+    print(response.text)
+except Exception as e:
+    print(f"❌ Gemini API Error: {e}")
